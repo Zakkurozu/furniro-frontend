@@ -1,5 +1,5 @@
 .container {
-  @apply px-3 py-3 mx-auto max-w-[75rem];
+  @apply px-3 py-3 mx-auto max-w-[75rem] md:px-6;
 }
 
 .swiper-button {

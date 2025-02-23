@@ -67,12 +67,14 @@ const Sweeper = () => {
               />
               <div className="absolute bottom-8 left-4 flex items-end">
                 <div className="flex flex-col bg-[#f4f4f4c2] gap-y-1 p-4">
-                  <p className="flex items-center gap-x-1 text-gray3">
+                  <p className="flex items-center gap-x-1 text-gray3 text-[.9rem]">
                     0{index + 1}{" "}
                     <span className="w-[15px] h-[2px] bg-gray3"></span>{" "}
                     {item.category}
                   </p>
-                  <h3 className="text-[1.1rem] font-semibold">{item.title}</h3>
+                  <h3 className="text-[1.1rem] font-semibold md:text-[1rem]">
+                    {item.title}
+                  </h3>
                 </div>
                 <div>
                   <button className="bg-primary py-3 px-3 text-white">

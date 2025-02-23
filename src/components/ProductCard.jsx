@@ -1,8 +1,20 @@
+import { useEffect, useState } from "react";
+
 const ProductCard = ({ product }) => {
+  const [itemShow, setItemShow] = useState(4);
+  useEffect(() => {
+    const updateItems = () => {
+      setItemShow(window.innerWidth >= 768 ? 8 : 4);
+    };
+    updateItems();
+    window.addEventListener("resize", updateItems);
+    return () => window.removeEventListener("resize", updateItems);
+  }, []);
+
   return (
     <>
-      {product.slice(0, 4).map((item, index) => (
-        <div key={index} className="w-1/2 p-2">
+      {product.slice(0, itemShow).map((item, index) => (
+        <div key={index} className="w-1/2 p-2 md:w-1/4 md:p-1">
           <div className="flex flex-col bg-gray7 rounded-md overflow-hidden">
             <div className="gambar flex w-full h-[13rem] relative overflow-hidden">
               <img
@@ -35,7 +47,7 @@ const ProductCard = ({ product }) => {
                 {item.category}
               </p>
               <div className="flex items-center gap-x-1">
-                <p className="font-semibold text-[.95rem] text-gray1">
+                <p className="font-semibold text-[.95rem] text-gray1 md:text-[.9rem]">
                   Rp.
                   {(
                     item.price -
@@ -43,7 +55,7 @@ const ProductCard = ({ product }) => {
                   ).toLocaleString("id-ID")}
                 </p>
                 {item.discount > 0 && (
-                  <p className="font-semibold text-[.7rem] text-gray5 line-through">
+                  <p className="font-semibold text-[.7rem] text-gray5 line-through md:text-[.6rem]">
                     Rp.{item.price.toLocaleString("id-ID")}
                   </p>
                 )}

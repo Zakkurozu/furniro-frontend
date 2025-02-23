@@ -30,7 +30,7 @@ const Galery = () => {
               />
             ))}
           </div>
-          {/* Baris Kedua (Delay untuk efek lebih smooth) */}
+          {/* Baris Kedua */}
           <div className="flex gap-3 w-max flex-nowrap animate-scroll2">
             {duplicatedImages2.map((src, index) => (
               <img
