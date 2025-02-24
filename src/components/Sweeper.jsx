@@ -57,7 +57,7 @@ const Sweeper = () => {
         {sliderData.map((item, index) => (
           <SwiperSlide
             key={item.id}
-            className={`flex flex-col !w-[70%] !h-[22rem] bg-gray-700 overflow-hidden`}
+            className={`flex flex-col !w-[70%] !h-[22rem] bg-gray-700 overflow-hidden lg:!h-[32rem]`}
           >
             <div className="gambar flex w-full h-full relative overflow-hidden">
               <img
@@ -65,14 +65,17 @@ const Sweeper = () => {
                 src={item.img}
                 alt={item.title}
               />
-              <div className="absolute bottom-8 left-4 flex items-end">
-                <div className="flex flex-col bg-[#f4f4f4c2] gap-y-1 p-4">
-                  <p className="flex items-center gap-x-1 text-gray3 text-[.9rem]">
+              <div
+                className="absolute bottom-8 left-4 flex items-end 
+              lg:left-6 lg:bottom-10"
+              >
+                <div className="flex flex-col bg-[#f4f4f4c2] gap-y-1 p-4 lg:min-w-[13rem]">
+                  <p className="flex items-center gap-x-1 text-gray3 text-[.9rem] lg:text-[1rem]">
                     0{index + 1}{" "}
                     <span className="w-[15px] h-[2px] bg-gray3"></span>{" "}
                     {item.category}
                   </p>
-                  <h3 className="text-[1.1rem] font-semibold md:text-[1rem]">
+                  <h3 className="text-[1.1rem] font-semibold md:text-[1rem] lg:text-[1.3rem]">
                     {item.title}
                   </h3>
                 </div>

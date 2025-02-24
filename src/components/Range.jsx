@@ -13,12 +13,16 @@ const Range = () => {
     <>
       <div className="flex mx-auto w-full justify-center items-center gap-2 text-gray1 md:gap-4 md:w-[85%]">
         {Img.map((item, index) => (
-          <div key={index} className="w-1/3 space-y-2">
+          <a
+            href={`/range/${item.tittle}`}
+            key={index}
+            className="w-1/3 space-y-2"
+          >
             <img className="w-full rounded-md" src={item.img} alt="" />
             <p className="font-semibold text-center md:text-[1.2rem]">
               {item.tittle}
             </p>
-          </div>
+          </a>
         ))}
       </div>
     </>

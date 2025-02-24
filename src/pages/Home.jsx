@@ -1,3 +1,4 @@
+import Badge from "../components/Badge";
 import Galery from "../components/Galery";
 import ProductList from "../components/ProductList";
 import Range from "../components/Range";
@@ -52,7 +53,11 @@ const Home = () => {
         <div className="container space-y-8">
           <div className="teks">
             <div className="flex flex-col items-center">
-              <h1 className="font-bold text-[1.3rem] text-gray1 md:text-[1.5rem]">
+              <h1
+                className="font-bold text-[1.3rem] text-gray1 
+              md:text-[1.5rem] 
+              lg:text-[1.7rem]"
+              >
                 Browse The Range
               </h1>
               <h3 className="text-center font-normal text-[.9rem] text-gray3 w-[80%] md:text-[1.1rem] md:w-[50%]">
@@ -73,7 +78,11 @@ const Home = () => {
       <section className="kedua my-[3rem]">
         <div className="container space-y-4 md:space-y-8">
           <div className="teks">
-            <h1 className="text-center font-bold text-[1.3rem] text-gray1 md:text-[1.5rem]">
+            <h1
+              className="text-center font-bold text-[1.3rem] text-gray1 
+            md:text-[1.5rem]
+            lg:text-[1.7rem]"
+            >
               Our Products
             </h1>
           </div>
@@ -94,13 +103,21 @@ const Home = () => {
         <div className="bg-bgSec">
           <div className="container">
             <div className="flex flex-wrap justify-center items-center py-8 gap-y-5">
-              <div className="w-full md:w-1/2 md:ps-10">
+              <div className="w-full md:w-1/2 md:ps-10 lg:ps-16">
                 <div className="flex flex-col px-2 gap-y-3">
                   <div className="teks space-y-1 md:space-y-2">
-                    <h1 className="font-bold text-gray1 text-[1.3rem] max-w-[70%] md:text-[1.5rem] md:max-w-[80%]">
+                    <h1
+                      className="font-bold text-gray1 text-[1.3rem] max-w-[70%] 
+                    md:text-[1.5rem] md:max-w-[80%]
+                    lg:text-[2.2rem] lg:max-w-[70%]"
+                    >
                       50+ Beautiful rooms inspiration
                     </h1>
-                    <p className="text-gray3 text-[.95rem] max-w-[80%] md:max-w-[100%]">
+                    <p
+                      className="text-gray3 font-semibold text-[.95rem] max-w-[80%] 
+                    md:max-w-[100%]
+                    lg:text-[1.1rem] lg:max-w-[80%]"
+                    >
                       Our designer already made a lot of beautiful prototipe of
                       rooms that inspire you
                     </p>
@@ -125,10 +142,10 @@ const Home = () => {
       <section className="keempat my-[3rem]">
         <div className="container space-y-7">
           <div className="teks text-center">
-            <p className="font-semibold text-[.9rem] text-gray3">
+            <p className="font-semibold text-[.9rem] text-gray3 lg:text-[1rem]">
               Share your setup with
             </p>
-            <h1 className="font-bold text-[1.4rem] text-gray1">
+            <h1 className="font-bold text-[1.4rem] text-gray1 lg:text-[1.7rem]">
               #FurniroFurniture
             </h1>
           </div>
@@ -136,6 +153,7 @@ const Home = () => {
         </div>
       </section>
       {/* section keempat end */}
+      <Badge />
     </>
   );
 };
