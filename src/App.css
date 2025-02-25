@@ -21,3 +21,11 @@
 .swiper-pagination-bullet-active {
   @apply bg-transparent border-[2px] border-primary p-[4px] opacity-100 !important;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
