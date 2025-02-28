@@ -35,7 +35,7 @@ const Footer = () => {
                   </div>
                 </div>
               </div>
-              <div className="w-full md:w-1/4">
+              <div className="w-full lg:w-1/4">
                 <div className="flex flex-col gap-y-7">
                   <h2 className="font-semibold text-gray4">NewsLetter</h2>
                   <form action="" className="flex gap-2">
