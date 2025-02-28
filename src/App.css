@@ -29,3 +29,32 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Override navigasi panah Swiper */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #3b82f6 !important;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  --swiper-navigation-size: 20px;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Styling untuk Swiper thumbnail aktif */
+.swiper-slide-thumb-active {
+  @apply border-primary !important;
+  opacity: 1 !important;
+}
+
+/* Perbaikan untuk Swiper responsive */
+.thumb-swiper .swiper-slide,
+.vertical-thumb-swiper .swiper-slide {
+  height: 70px;
+  opacity: 0.6;
+}
