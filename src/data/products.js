@@ -87,7 +87,7 @@ export const product = [
     id: 5,
     name: "Griffo",
     tag: "Night lamp",
-    category: "Bedroom",
+    category: "Lamp",
     range: "Bedroom",
     stock: 73,
     overview:
