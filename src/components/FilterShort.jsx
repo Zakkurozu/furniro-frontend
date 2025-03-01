@@ -1,11 +1,21 @@
 import { TbAdjustmentsHorizontal } from "react-icons/tb";
 import { useState } from "react";
 
-const FilterShort = () => {
+const FilterShort = ({ filters, setFilters }) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   const toggleIsFilterOpen = () => {
     setIsFilterOpen(!isFilterOpen);
+  };
+
+  const handleFilterChange = (type, value) => {
+    setFilters((prevFilters) => {
+      let updateValues = prevFilters[type].includes(value)
+        ? prevFilters[type].filter((item) => item !== value)
+        : [...prevFilters[type], value];
+
+      return { ...prevFilters, [type]: updateValues };
+    });
   };
 
   return (
@@ -26,13 +36,15 @@ const FilterShort = () => {
                 Short by
               </label>
               <select
+                defaultValue="0"
                 className="focus:outline-none px-2 py-1 text-gray3 rounded-sm font-medium"
+                onChange={(e) =>
+                  setFilters((prev) => ({ ...prev, sortBy: e.target.value }))
+                }
                 name=""
                 id=""
               >
-                <option selected value="0">
-                  Default
-                </option>
+                <option value="0">Default</option>
                 <option value="1">Name</option>
                 <option value="2">Price to high</option>
                 <option value="3">Price to low</option>
@@ -52,49 +64,62 @@ const FilterShort = () => {
           <div className="flex flex-wrap gap-y-3 font-medium">
             <div className="w-1/3 px-2 space-y-2 text-gray3">
               <h3>Range</h3>
-              <form action="">
-                <div className="form-group flex items-center gap-1">
-                  <input type="checkbox" name="Dining" id="Dining" />
-                  <label htmlFor="Dining">Dining</label>
-                </div>
-                <div className="form-group flex items-center gap-1">
-                  <input type="checkbox" name="Living" id="Living" />
-                  <label htmlFor="Living">Living</label>
-                </div>
-                <div className="form-group flex items-center gap-1">
-                  <input type="checkbox" name="Bedroom" id="Bedroom" />
-                  <label htmlFor="Bedroom">Bedroom</label>
-                </div>
+              <form>
+                {["Dining", "Living", "Bedroom"].map((item, index) => (
+                  <div
+                    key={index}
+                    className="form-group flex items-center gap-1"
+                  >
+                    <input
+                      type="checkbox"
+                      checked={filters.range.includes(item)}
+                      onChange={() => handleFilterChange("range", item)}
+                      name={item}
+                      id={item}
+                    />
+                    <label htmlFor={item}>{item}</label>
+                  </div>
+                ))}
               </form>
             </div>
             <div className="w-1/3 px-2 space-y-2 text-gray3">
               <h3>Category</h3>
-              <form action="">
-                <div className="form-group flex items-center gap-1">
-                  <input type="checkbox" name="Sofa" id="Sofa" />
-                  <label htmlFor="Sofa">Sofa</label>
-                </div>
-                <div className="form-group flex items-center gap-1">
-                  <input type="checkbox" name="Bed" id="Bed" />
-                  <label htmlFor="Bed">Bed</label>
-                </div>
-                <div className="form-group flex items-center gap-1">
-                  <input type="checkbox" name="Chair" id="Chair" />
-                  <label htmlFor="Chair">Chair</label>
-                </div>
+              <form>
+                {["Sofa", "Bed", "Chair", "Lamp"].map((item, index) => (
+                  <div
+                    key={index}
+                    className="form-group flex items-center gap-1"
+                  >
+                    <input
+                      type="checkbox"
+                      checked={filters.category.includes(item)}
+                      onChange={() => handleFilterChange("category", item)}
+                      name={item}
+                      id={item}
+                    />
+                    <label htmlFor={item}>{item}</label>
+                  </div>
+                ))}
               </form>
             </div>
             <div className="w-1/3 px-2 space-y-2 text-gray3">
               <h3>Others</h3>
-              <form action="">
-                <div className="form-group flex items-center gap-1">
-                  <input type="checkbox" name="Discount" id="Discount" />
-                  <label htmlFor="Discount">Discount</label>
-                </div>
-                <div className="form-group flex items-center gap-1">
-                  <input type="checkbox" name="New" id="New" />
-                  <label htmlFor="New">New</label>
-                </div>
+              <form>
+                {["Discount", "New"].map((item, index) => (
+                  <div
+                    key={index}
+                    className="form-group flex items-center gap-1"
+                  >
+                    <input
+                      type="checkbox"
+                      checked={filters.others.includes(item)}
+                      onChange={() => handleFilterChange("others", item)}
+                      name={item}
+                      id={item}
+                    />
+                    <label htmlFor={item}>{item}</label>
+                  </div>
+                ))}
               </form>
             </div>
           </div>
