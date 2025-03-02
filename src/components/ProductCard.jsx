@@ -12,7 +12,7 @@ const ProductCard = ({ product }) => {
               src={product.images[0]}
               alt=""
             />
-            <div className="absolute flex top-2 right-2 ">
+            <div className="absolute flex gap-x-1 top-2 right-2 ">
               {product.discount > 0 && (
                 <div className="bg-abang w-[35px] h-[35px] rounded-full">
                   <span className="w-full h-full flex items-center justify-center font-semibold text-[.7rem] text-putih">

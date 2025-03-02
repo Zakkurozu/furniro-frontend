@@ -8,25 +8,26 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import "swiper/css/autoplay";
 import ReviewList from "../components/ReviewList";
-import ProductList from "../components/ProductList";
+// import ProductList from "../components/ProductList";
 import product from "../data/products";
+import ProductCard from "../components/ProductCard";
 
 const SingleProduct = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [count, setCount] = useState(1);
   const [descActive, setDescActive] = useState(true);
-  const [currentLocation, setCurrentLocation] = useState(
-    window.location.pathname
-  );
+  // const [currentLocation, setCurrentLocation] = useState(
+  //   window.location.pathname
+  // );
   const { pathname } = useLocation();
 
-  useEffect(() => {
-    const updateLocation = () => {
-      setCurrentLocation(window.location.pathname);
-    };
-    window.addEventListener("popstate", updateLocation);
-    return () => window.removeEventListener("popstate", updateLocation);
-  }, []);
+  // useEffect(() => {
+  //   const updateLocation = () => {
+  //     setCurrentLocation(window.location.pathname);
+  //   };
+  //   window.addEventListener("popstate", updateLocation);
+  //   return () => window.removeEventListener("popstate", updateLocation);
+  // }, []);
 
   useEffect(() => {
     const updateItems = () => {
@@ -48,6 +49,11 @@ const SingleProduct = () => {
 
   const image = productDetail.images;
   const imageLoop = [...image];
+
+  const similarProduct = product.filter(
+    (item) =>
+      item.category === productDetail.category && item.id !== productDetail.id
+  );
 
   if (!productDetail) {
     return <h2>Product Not Found</h2>;
@@ -240,7 +246,15 @@ const SingleProduct = () => {
           <div className="flex flex-col items-center">
             <h1 className="text-xl font-semibold my-4">Related Product</h1>
             <div className=" md:w-[90%]">
-              <ProductList location={currentLocation} />
+              <div className="flex flex-wrap w-full justify-start content-center gap-y-1">
+                {similarProduct.length > 0 ? (
+                  similarProduct.map((item) => (
+                    <ProductCard key={item.id} product={item} />
+                  ))
+                ) : (
+                  <p className="text-center font-medium">No related product</p>
+                )}
+              </div>
             </div>
           </div>
         </div>

@@ -2,20 +2,32 @@ import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import product from "../data/products";
 
-const ProductList = ({ location, filters }) => {
-  const [itemShow, setItemShow] = useState(product.length);
+const ProductList = ({ filters, showBtn }) => {
+  const [itemShow, setItemShow] = useState(8);
+  const [currentView, setCurrentView] = useState(1);
+
   useEffect(() => {
-    const updateItems = () => {
-      if (window.location.pathname === "/") {
-        setItemShow(window.innerWidth <= 768 ? 4 : 8);
-      } else if (window.location.pathname === location) {
-        setItemShow(4);
-      }
-    };
-    updateItems();
-    window.addEventListener("resize", updateItems);
-    return () => window.removeEventListener("resize", updateItems);
+    if (window.location.pathname === "/") {
+      setItemShow(window.innerWidth <= 768 ? 4 : 8);
+    } else if (window.location.pathname === "/shop") {
+      setItemShow(window.innerWidth <= 768 ? 8 : 12);
+    }
+    // const updateItems = () => {
+    // };
+
+    // updateItems();
+    // window.addEventListener("resize", updateItems);
+    // return () => window.removeEventListener("resize", updateItems);
   }, []);
+
+  useEffect(() => {
+    if (window.location.pathname === "/") {
+      if (showBtn) {
+        setItemShow((prev) => prev + 4);
+      }
+      console.log(itemShow);
+    }
+  }, [showBtn]);
 
   const filterProducts = product
     .filter((item) => {
@@ -46,17 +58,58 @@ const ProductList = ({ location, filters }) => {
       return 0;
     });
 
+  const totalPage = Math.ceil(filterProducts.length / itemShow);
+  const startIndex = (currentView - 1) * itemShow;
+  const endIndex = startIndex + itemShow;
+  const paginateView = filterProducts.slice(startIndex, endIndex);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentView]);
+
   return (
     <>
       <div className="flex flex-wrap w-full justify-center content-center gap-y-1">
-        {filterProducts.length > 0 ? (
-          filterProducts
-            .slice(0, itemShow)
-            .map((item) => <ProductCard key={item.id} product={item} />)
+        {paginateView.length > 0 ? (
+          paginateView.map((item) => (
+            <ProductCard key={item.id} product={item} />
+          ))
         ) : (
           <p className="text-gray-500 text-center w-full">No products found</p>
         )}
       </div>
+
+      {window.location.pathname === "/shop" && totalPage > 1 && (
+        <div className="flex justify-center items-center gap-x-2 mt-4">
+          <button
+            className="p-3 font-semibold bg-gray6 text-black rounded-md"
+            disabled={currentView === 1}
+            onClick={() => setCurrentView((prev) => prev - 1)}
+          >
+            Prev
+          </button>
+          {[...Array(totalPage)].map((_, index) => (
+            <button
+              key={index}
+              className={`p-3 font-semibold rounded-md ${
+                currentView === index + 1
+                  ? "bg-primary text-white"
+                  : "bg-gray6 text-black"
+              }`}
+              onClick={() => setCurrentView(index + 1)}
+            >
+              {index + 1}
+            </button>
+          ))}
+          <button
+            className="p-3 font-semibold bg-gray6 text-black rounded-md"
+            disabled={currentView === totalPage}
+            onClick={() => setCurrentView((prev) => prev + 1)}
+          >
+            Next
+          </button>
+        </div>
+      )}
     </>
   );
 };
