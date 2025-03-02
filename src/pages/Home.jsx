@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Badge from "../components/Badge";
 import Galery from "../components/Galery";
 import ProductList from "../components/ProductList";
@@ -5,6 +6,8 @@ import Range from "../components/Range";
 import Sweeper from "../components/Sweeper";
 
 const Home = () => {
+  const [showBtn, setShowBtn] = useState(false);
+
   return (
     <>
       {/* hero section start */}
@@ -87,13 +90,18 @@ const Home = () => {
             </h1>
           </div>
           <div className="konten">
-            <ProductList />
+            <ProductList showBtn={showBtn} />
           </div>
-          <div className="tombol w-full flex">
-            <button className="mx-auto mt-5 px-6 py-2 border-[1px] border-primary text-primary text-[.9rem] font-semibold">
-              Show more
-            </button>
-          </div>
+          {!showBtn && (
+            <div className="tombol w-full flex">
+              <button
+                onClick={() => setShowBtn(true)}
+                className="mx-auto mt-5 px-6 py-2 border-[1px] border-primary text-primary text-[.9rem] font-semibold"
+              >
+                Show More
+              </button>
+            </div>
+          )}
         </div>
       </section>
       {/* section kedua end */}
