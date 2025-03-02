@@ -63,6 +63,26 @@ const FilterShort = ({ filters, setFilters }) => {
           <hr className="border-[1px] border-gray6" />
           <div className="flex flex-wrap gap-y-3 font-medium">
             <div className="w-1/3 px-2 space-y-2 text-gray3">
+              <h3>Category</h3>
+              <form>
+                {["Sofa", "Bed", "Chair", "Lamp", "Desk"].map((item, index) => (
+                  <div
+                    key={index}
+                    className="form-group flex items-center gap-1"
+                  >
+                    <input
+                      type="checkbox"
+                      checked={filters.category.includes(item)}
+                      onChange={() => handleFilterChange("category", item)}
+                      name={item}
+                      id={item}
+                    />
+                    <label htmlFor={item}>{item}</label>
+                  </div>
+                ))}
+              </form>
+            </div>
+            <div className="w-1/3 px-2 space-y-2 text-gray3">
               <h3>Range</h3>
               <form>
                 {["Dining", "Living", "Bedroom"].map((item, index) => (
@@ -74,26 +94,6 @@ const FilterShort = ({ filters, setFilters }) => {
                       type="checkbox"
                       checked={filters.range.includes(item)}
                       onChange={() => handleFilterChange("range", item)}
-                      name={item}
-                      id={item}
-                    />
-                    <label htmlFor={item}>{item}</label>
-                  </div>
-                ))}
-              </form>
-            </div>
-            <div className="w-1/3 px-2 space-y-2 text-gray3">
-              <h3>Category</h3>
-              <form>
-                {["Sofa", "Bed", "Chair", "Lamp"].map((item, index) => (
-                  <div
-                    key={index}
-                    className="form-group flex items-center gap-1"
-                  >
-                    <input
-                      type="checkbox"
-                      checked={filters.category.includes(item)}
-                      onChange={() => handleFilterChange("category", item)}
                       name={item}
                       id={item}
                     />
