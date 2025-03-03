@@ -17,9 +17,9 @@ const Shop = () => {
       <div className="bg-[image:url('/bg2.jpg')] h-[8rem] bg-cover bg-center md:h-[10rem]">
         <div className="flex justify-center items-center w-full h-full bg-[#294d3246]">
           <div className="flex flex-col items-center text-white">
-            <img src="/logo.png" className="w-[1.6rem]" alt="" />
-            <h1 className="text-xl font-medium">Shop</h1>
-            <p className="flex items-center text-xs">find any furniture</p>
+            <img src="/logo.png" className="w-[2rem]" alt="" />
+            <h1 className="text-2xl font-semibold">Shop</h1>
+            <p className="flex items-center text-sm">find any furniture</p>
           </div>
         </div>
       </div>
