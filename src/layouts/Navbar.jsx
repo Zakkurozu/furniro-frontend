@@ -2,17 +2,18 @@ import { useEffect, useRef, useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
 import { FiSearch, FiShoppingCart } from "react-icons/fi";
 import { LuUserCog } from "react-icons/lu";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Search from "../components/Search";
 import ShoppingCart from "../components/ShoppingCart";
 
 const Navbar = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [menuOpen, setmenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const menuRef = useRef(null);
   const searchRef = useRef(null);
+  const inputRef = useRef(null);
   const cartRef = useRef(null);
   const buttonRef = useRef(null);
   const searchBtnReff = useRef(null);
@@ -23,6 +24,9 @@ const Navbar = () => {
   };
   const handleSearchOpen = () => {
     setSearchOpen((prev) => !prev);
+    if (!searchOpen) {
+      setTimeout(() => inputRef.current?.focus(), 100);
+    }
   };
 
   const handleCartOpen = () => {
@@ -68,7 +72,10 @@ const Navbar = () => {
     <>
       <div className=" px-5 py-3 bg-putih">
         <div className="container w-full flex justify-between items-center relative">
-          <div onClick={() => navigate("/")} className="flex gap-1 items-start">
+          <div
+            onClick={() => (window.location.href = "/")}
+            className="flex gap-1 items-start"
+          >
             <img src="/logo.png" alt="" className="w-8 md:w-10" />
             <h1 className="font-bold text-lg md:text-xl cursor-pointer">
               Furniro
@@ -166,7 +173,12 @@ const Navbar = () => {
             md:w-[60%] md:translate-x-0 md:right-0
             lg:w-[40%]`}
           >
-            <Search />
+            <Search
+              setSearchOpen={setSearchOpen}
+              handleSearchOpen={handleSearchOpen}
+              inputRef={inputRef}
+              searchOpen={searchOpen}
+            />
           </div>
 
           {/* cart open */}
