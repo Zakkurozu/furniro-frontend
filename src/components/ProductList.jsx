@@ -79,7 +79,7 @@ const ProductList = ({ filters, showBtn }) => {
         )}
       </div>
 
-      {window.location.pathname === "/shop" && totalPage > 1 && (
+      {window.location.pathname !== "/" && totalPage > 1 && (
         <div className="flex justify-center items-center gap-x-2 mt-4">
           <button
             className="p-3 font-semibold bg-gray6 text-black rounded-md"
