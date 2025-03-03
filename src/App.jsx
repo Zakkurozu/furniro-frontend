@@ -7,6 +7,7 @@ import Cart from "./pages/Cart";
 import SingleProduct from "./pages/SingleProduct";
 import Footer from "./layouts/Footer";
 import { useEffect } from "react";
+import SearchResult from "./pages/SearchResult";
 
 function App() {
   const location = useLocation();
@@ -36,6 +37,7 @@ function App() {
         <Route path="/shop" element={<Shop />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/shop/product/:id/:name" element={<SingleProduct />} />
+        <Route path="/search" element={<SearchResult />} />
       </Routes>
       <Footer />
     </>
