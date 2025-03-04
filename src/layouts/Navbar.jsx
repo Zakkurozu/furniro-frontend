@@ -68,6 +68,25 @@ const Navbar = () => {
     };
   }, [menuOpen, searchOpen, cartOpen]);
 
+  // cart data
+  const [cartLength, setCartLength] = useState(
+    JSON.parse(localStorage.getItem("cart"))?.length || 0
+  );
+
+  useEffect(() => {
+    const updateCartLength = () => {
+      setTimeout(
+        () =>
+          setCartLength(JSON.parse(localStorage.getItem("cart"))?.length || 0),
+        800
+      );
+    };
+
+    window.addEventListener("storage", updateCartLength);
+
+    return () => window.removeEventListener("storage", updateCartLength);
+  }, []);
+
   return (
     <>
       <div className=" px-5 py-3 bg-putih">
@@ -148,8 +167,17 @@ const Navbar = () => {
             <button
               ref={cartBtnReff}
               onClick={handleCartOpen}
-              className="text-lg md:text-xl"
+              className="text-lg md:text-xl relative"
             >
+              <div
+                className={`bg-abang w-[12px] h-[12px] rounded-full absolute -translate-y-1/2 translate-x-1/2 top-0 right-0 ${
+                  cartLength > 0 ? "scale-100" : "scale-0"
+                } transition-all duration-150`}
+              >
+                <span className="w-full h-full flex items-center justify-center text-[7px] text-putih">
+                  {cartLength}
+                </span>
+              </div>
               <FiShoppingCart />{" "}
             </button>
             <button
