@@ -13,7 +13,6 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
-    // console.log(location);
     let title = "Furniro | Online Furniture Shop";
     if (location.pathname === "/") {
       title = "Furniro | Online Furniture Shop";
@@ -26,7 +25,6 @@ function App() {
     }
 
     document.title = title;
-    // console.log(title);
   }, [location]);
 
   return (
