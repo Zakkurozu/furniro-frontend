@@ -12,7 +12,7 @@ const Home = () => {
     <>
       {/* hero section start */}
       <section className="hero">
-        <div className="relative bg-[image:url('/public/bg.png')] bg-cover bg-center flex w-full h-[75vh] object-cover object-center lg:h-[85vh]">
+        <div className="relative bg-[image:url('/public/bg.png')] bg-cover bg-center flex w-full h-[42rem] object-cover object-center lg:h-[85vh]">
           <div className="container relative">
             <div className="absolute px-5 py-10 bg-[#fff3e39a] bottom-20 right-10 rounded-md md:right-16 md:px-7 md:py-12">
               <div className="flex flex-col gap-3 font-poppins md:gap-y-2">
