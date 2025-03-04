@@ -59,7 +59,13 @@ const Footer = () => {
           </div>
         </div>
         <hr />
-        <div className="bawah py-2">
+        <div
+          className={` bawah py-2 ${
+            window.location.pathname.includes("/shop/product")
+              ? "mb-[4.8rem] md:mb-0"
+              : ""
+          }`}
+        >
           <div className="container">
             <div className="font-medium text-gray3">
               2025 &copy; Furniro. All Rights Reserved
