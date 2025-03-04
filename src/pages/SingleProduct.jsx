@@ -8,26 +8,16 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import "swiper/css/autoplay";
 import ReviewList from "../components/ReviewList";
-// import ProductList from "../components/ProductList";
 import product from "../data/products";
 import ProductCard from "../components/ProductCard";
+import { BsFillCartCheckFill } from "react-icons/bs";
 
 const SingleProduct = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [count, setCount] = useState(1);
   const [descActive, setDescActive] = useState(true);
-  // const [currentLocation, setCurrentLocation] = useState(
-  //   window.location.pathname
-  // );
   const { pathname } = useLocation();
-
-  // useEffect(() => {
-  //   const updateLocation = () => {
-  //     setCurrentLocation(window.location.pathname);
-  //   };
-  //   window.addEventListener("popstate", updateLocation);
-  //   return () => window.removeEventListener("popstate", updateLocation);
-  // }, []);
+  const [alert, setAlert] = useState(false);
 
   useEffect(() => {
     const updateItems = () => {
@@ -58,6 +48,37 @@ const SingleProduct = () => {
   if (!productDetail) {
     return <h2>Product Not Found</h2>;
   }
+
+  // cart function
+  const handleAddToCart = () => {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const existingItem = cart.find((item) => item.prodId === productDetail.id);
+    if (existingItem) {
+      cart = cart.map((item) =>
+        item.prodId === productDetail.id
+          ? { ...item, qty: item.qty + count }
+          : item
+      );
+    } else {
+      const newItem = {
+        id: cart.length + 1,
+        prodId: productDetail.id,
+        name: productDetail.name,
+        img: productDetail.images[0],
+        qty: count,
+        price:
+          productDetail.price -
+          productDetail.price * (productDetail.discount / 100),
+      };
+      cart.push(newItem);
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+    window.dispatchEvent(new Event("storage"));
+
+    setTimeout(() => setAlert(true), 500);
+    setTimeout(() => setAlert(false), 1500);
+  };
 
   return (
     <>
@@ -126,6 +147,7 @@ const SingleProduct = () => {
                 </div>
               </div>
             </div>
+
             {/* Bagian overview */}
             <div className="w-full px-4 md:w-1/2">
               <div className="bg-white p-2 md:p-6">
@@ -176,7 +198,7 @@ const SingleProduct = () => {
                 </div>
                 <p className="text-gray-600 mb-4">{productDetail.overview}</p>
 
-                <div className="flex gap-3">
+                <div className="flex gap-3 fixed  bottom-0 left-0 bg-white shadow-[0px_-4px_10px_rgba(0,0,0,0.1)] px-3 py-3 z-10 w-full md:static md:shadow-none md:bg-transparent">
                   <div className="flex gap-5 justify-center items-center border-2 border-gray5 px-2 py-3 rounded-xl font-medium">
                     <button
                       onClick={() => setCount(count - 1)}
@@ -198,7 +220,10 @@ const SingleProduct = () => {
                       +
                     </button>
                   </div>
-                  <button className="w-full border-2 border-gray1 py-3 px-4 rounded-xl transition-colors duration-300">
+                  <button
+                    onClick={handleAddToCart}
+                    className="w-full border-2 border-gray1 py-3 px-4 rounded-xl lg:hover:bg-gray3 lg:hover:text-white active:bg-gray1 active:text-white transition-colors duration-300"
+                  >
                     Add to chart
                   </button>
                 </div>
@@ -258,6 +283,18 @@ const SingleProduct = () => {
             </div>
           </div>
         </div>
+        {alert && (
+          <div className="bg-[#ffffff5d] w-full h-full fixed z-10 translate-x-1/2 right-1/2 -translate-y-1/2 top-1/2">
+            <div className="absolute w-[15rem] h-[7rem] bg-gray1 rounded-xl translate-x-1/2 right-1/2 -translate-y-1/2 top-1/2">
+              <div className="flex h-full justify-center items-center">
+                <p className="text-white font-semibold flex items-center gap-2">
+                  <BsFillCartCheckFill className="text-2xl" /> Adding {count}{" "}
+                  {count > 1 ? "items" : "item"} to cart
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
       </section>
     </>
   );
