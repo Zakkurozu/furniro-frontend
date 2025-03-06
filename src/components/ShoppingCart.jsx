@@ -82,7 +82,10 @@ const ShoppingCart = () => {
         </p>
       </div>
       <div className="flex justify-end">
-        <button className="px-8 py-1 border-[1px] border-black rounded-full">
+        <button
+          onClick={() => (window.location.href = "/shop/checkout")}
+          className="px-8 py-1 border-[1px] border-black rounded-full"
+        >
           Checkout
         </button>
       </div>
