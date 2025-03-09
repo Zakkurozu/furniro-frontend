@@ -3,12 +3,12 @@ const ProductCard = ({ product }) => {
     <>
       <a
         href={`/shop/product/${product.id}/${product.name}`}
-        className="w-1/2 p-2 md:w-1/4 md:p-1 lg:p-2"
+        className="w-1/2 p-2 md:w-1/4 md:p-1 lg:p-2 group"
       >
-        <div className="flex flex-col bg-gray7 rounded-md overflow-hidden">
+        <div className="flex flex-col bg-gray7 rounded-md overflow-hidden group-hover:shadow-lg group-hover:scale-[.98] group-hover:bg-gray6 transition-all duration-500 ease-in-out">
           <div className="gambar flex w-full h-[13rem] relative overflow-hidden lg:h-[18rem]">
             <img
-              className="absolute w-full h-full object-cover object-center"
+              className="absolute w-full h-full object-cover object-center group-hover:scale-110 group-hover:opacity-80 transition-all duration-[600ms] ease-in-out"
               src={product.images[0]}
               alt=""
             />

@@ -16,10 +16,16 @@ const Range = () => {
           <a
             href={`/range/${item.tittle}`}
             key={index}
-            className="w-1/3 space-y-2"
+            className="w-1/3 space-y-2 pb-2 rounded-xl group hover:bg-gray6 hover:shadow-lg hover:scale-[98%] transition-all duration-[600ms] ease-in-out"
           >
-            <img className="w-full rounded-md" src={item.img} alt="" />
-            <p className="font-semibold text-center md:text-[1.2rem]">
+            <div className="w-full rounded-md overflow-hidden ">
+              <img
+                className="object-cover object-center group-hover:scale-110 group-hover:brightness-75 transition-all duration-[600ms] ease-in-out"
+                src={item.img}
+                alt=""
+              />
+            </div>
+            <p className="font-semibold text-center md:text-[1.3rem]">
               {item.tittle}
             </p>
           </a>

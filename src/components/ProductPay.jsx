@@ -195,7 +195,7 @@ const ProductPay = () => {
                   </p>
                 </div>
                 <div className="flex items-center gap-x-1">
-                  <p className="text-lg font-semibold">total :</p>
+                  <p className="text-lg font-semibold">Total :</p>
                   <p className="text-xl text-primary font-semibold">
                     IDR.{" "}
                     {(totalPay + (totalPay * totalTax) / 100).toLocaleString(
