@@ -4,7 +4,7 @@ import Badge from "../components/Badge";
 const Contact = () => {
   return (
     <>
-      <div className="container my-[3rem]">
+      <div className="container my-[2rem]">
         {/* section atas */}
         <div className="flex flex-col gap-y-[2rem] mb-[4rem] md:px-[5rem] lg:px-[10rem]">
           <div className="teks text-center space-y-1">
