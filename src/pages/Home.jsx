@@ -12,7 +12,7 @@ const Home = () => {
     <>
       {/* hero section start */}
       <section className="hero">
-        <div className="relative bg-[image:url('/public/bg.png')] bg-cover bg-center flex w-full h-[42rem] object-cover object-center lg:h-[85vh]">
+        <div className="relative bg-[image:url('/public/bg.png')] bg-cover bg-center flex w-full h-[42rem] object-cover object-center lg:h-[33rem]">
           <div className="container relative">
             <div className="absolute px-5 py-10 bg-[#fff3e39a] bottom-20 right-10 rounded-md md:right-16 md:px-7 md:py-12">
               <div className="flex flex-col gap-3 font-poppins md:gap-y-2">
@@ -33,8 +33,8 @@ const Home = () => {
                     Discover Our New Collection
                   </p>
                   <p className="font-medium text-[.875rem] text-gray1 w-[18rem] md:text-[1.075rem] md:w-[22rem] lg:w-[25rem]">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Praesentium at laborum iste amet aliquid doloribus.
+                    Crafted for comfort, designed for elegance. Elevate your
+                    space with our latest furniture collection.
                   </p>
                 </div>
                 <div className="bawah">
