@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { TbTrashXFilled } from "react-icons/tb";
 
 const ProductPay = () => {
+  const [loading, setLoading] = useState({});
   const [cart, setCart] = useState(
     () => JSON.parse(localStorage.getItem("cart")) || []
   );
@@ -17,11 +18,21 @@ const ProductPay = () => {
   }, []);
 
   const removeFromCart = (index) => {
-    const updateCart = cart.filter((_, i) => i !== index);
-    setCart(updateCart);
-    localStorage.setItem("cart", JSON.stringify(updateCart));
+    setLoading((prev) => ({ ...prev, [index]: true }));
 
-    window.dispatchEvent(new Event("storage"));
+    setTimeout(() => {
+      const updateCart = cart.filter((_, i) => i !== index);
+      setCart(updateCart);
+      localStorage.setItem("cart", JSON.stringify(updateCart));
+
+      setLoading((prev) => {
+        const newLoading = { ...prev };
+        delete newLoading[index];
+        return newLoading;
+      });
+
+      window.dispatchEvent(new Event("storage"));
+    }, 400);
   };
 
   //   payment data
@@ -87,12 +98,20 @@ const ProductPay = () => {
                         </div>
                       </div>
                       <div className="tombol">
-                        <button
-                          className="text-2xl text-gray4"
-                          onClick={() => removeFromCart(index)}
-                        >
-                          <TbTrashXFilled />
-                        </button>
+                        {loading[index] ? (
+                          <img
+                            src="/loading.gif"
+                            className="w-[1.5rem] h-[1.5rem]"
+                            alt="loading.png"
+                          />
+                        ) : (
+                          <button
+                            className="text-2xl text-gray4 hover:text-red-500 transition-all duration-300 ease-in-out"
+                            onClick={() => removeFromCart(index)}
+                          >
+                            <TbTrashXFilled />
+                          </button>
+                        )}
                       </div>
                     </div>
                   ))
