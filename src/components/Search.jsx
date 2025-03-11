@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { FiSearch } from "react-icons/fi";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Products from "../data/products";
 
 const Search = ({ handleSearchOpen, setSearchOpen, inputRef, searchOpen }) => {
@@ -90,9 +90,14 @@ const Search = ({ handleSearchOpen, setSearchOpen, inputRef, searchOpen }) => {
             <ul className="space-y-2 font-medium px-3 py-1">
               {preview.map((item, index) => (
                 <li key={index} className="w-full">
-                  <a
+                  <Link
                     className="w-full"
-                    href={`/shop/product/${item.id}/${item.name}`}
+                    onClick={() => {
+                      handleSearchOpen();
+                      setTimeout(() => {
+                        navigate(`/shop/product/${item.id}/${item.name}`);
+                      }, 300);
+                    }}
                   >
                     <div className="flex items-center gap-x-2 hover:bg-gray6 active:bg-gray6 rounded-md transition-all duration-200 ease-in-out">
                       <div className="gambar w-[4rem] h-[4rem]">
@@ -109,7 +114,7 @@ const Search = ({ handleSearchOpen, setSearchOpen, inputRef, searchOpen }) => {
                         </p>
                       </div>
                     </div>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
