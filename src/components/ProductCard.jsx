@@ -1,8 +1,19 @@
+import { Link, useNavigate } from "react-router-dom";
+
 const ProductCard = ({ product }) => {
+  const navigate = useNavigate();
   return (
     <>
-      <a
-        href={`/shop/product/${product.id}/${product.name}`}
+      <Link
+        to={`/shop/product/${product.id}/${product.name}`}
+        onClick={(e) => {
+          e.preventDefault();
+          setTimeout(() => {
+            navigate(
+              `/shop/product/${product.id}/${product.name}${location.search}`
+            );
+          }, 300);
+        }}
         className="w-1/2 p-2 md:w-1/4 md:p-1 lg:p-2 group"
       >
         <div className="flex flex-col bg-gray7 rounded-md overflow-hidden group-hover:shadow-lg group-hover:scale-[.98] group-hover:bg-gray6 transition-all duration-500 ease-in-out">
@@ -52,7 +63,7 @@ const ProductCard = ({ product }) => {
             </div>
           </div>
         </div>
-      </a>
+      </Link>
     </>
   );
 };
