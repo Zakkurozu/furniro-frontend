@@ -2,12 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
 import { FiSearch, FiShoppingCart } from "react-icons/fi";
 import { LuUserCog } from "react-icons/lu";
-import { Link } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Search from "../components/Search";
 import ShoppingCart from "../components/ShoppingCart";
 
 const Navbar = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [menuOpen, setmenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
@@ -18,6 +18,8 @@ const Navbar = () => {
   const buttonRef = useRef(null);
   const searchBtnReff = useRef(null);
   const cartBtnReff = useRef(null);
+
+  // const testProps = "ini teks yang dikirim dari parent dengan props";
 
   const handleMenuOpen = () => {
     setmenuOpen((prev) => !prev);
@@ -89,7 +91,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className=" px-5 py-3 bg-putih">
+      <nav className=" px-5 py-3 bg-putih shadow-sm">
         <div className="container w-full flex justify-between items-center relative">
           <div
             onClick={() => (window.location.href = "/")}
@@ -113,40 +115,68 @@ const Navbar = () => {
               <hr />
             </div>
             <div>
-              <Link
-                onClick={() => setmenuOpen(false)}
-                to="/"
-                className="flex w-full justify-center font-medium"
+              <NavLink
+                to={"/"}
+                onClick={() => {
+                  setmenuOpen(false);
+                  setTimeout(() => navigate("/"), 300);
+                }}
+                className={({ isActive }) =>
+                  `flex w-full justify-center font-medium ${
+                    isActive ? "text-primary font-bold underline" : "text-black"
+                  } transition-all duration-300 ease-in-out`
+                }
               >
                 Home
-              </Link>
+              </NavLink>
             </div>
             <div>
-              <Link
-                onClick={() => setmenuOpen(false)}
+              <NavLink
                 to="/shop"
-                className="flex w-full justify-center font-medium"
+                onClick={() => {
+                  setmenuOpen(false);
+                  setTimeout(() => navigate("/shop"), 300);
+                }}
+                className={({ isActive }) =>
+                  `flex w-full justify-center font-medium ${
+                    isActive ? "text-primary font-bold underline" : "text-black"
+                  } transition-all duration-300 ease-in-out`
+                }
               >
                 Shop
-              </Link>
+              </NavLink>
             </div>
             <div>
-              <Link
-                onClick={() => setmenuOpen(false)}
-                to="/about"
-                className="flex w-full justify-center font-medium"
+              <NavLink
+                to={"/about"}
+                onClick={() => {
+                  setmenuOpen(false);
+                  setTimeout(() => navigate("/about"), 300);
+                }}
+                className={({ isActive }) =>
+                  `flex w-full justify-center font-medium ${
+                    isActive ? "text-primary font-bold underline" : "text-black"
+                  } transition-all duration-300 ease-in-out`
+                }
               >
                 About
-              </Link>
+              </NavLink>
             </div>
             <div>
-              <Link
-                onClick={() => setmenuOpen(false)}
-                to="/contact"
-                className="flex w-full justify-center font-medium"
+              <NavLink
+                to={"/contact"}
+                onClick={() => {
+                  setmenuOpen(false);
+                  setTimeout(() => navigate("/contact"), 300);
+                }}
+                className={({ isActive }) =>
+                  `flex w-full justify-center font-medium ${
+                    isActive ? "text-primary font-bold underline" : "text-black"
+                  } transition-all duration-300 ease-in-out`
+                }
               >
                 Contact
-              </Link>
+              </NavLink>
             </div>
             <hr className="md:hidden" />
           </div>
@@ -217,10 +247,10 @@ const Navbar = () => {
             md:w-[50%]
             lg:w-[30%]`}
           >
-            <ShoppingCart />
+            <ShoppingCart handleCartOpen={handleCartOpen} />
           </div>
         </div>
-      </div>
+      </nav>
     </>
   );
 };
