@@ -2,8 +2,10 @@ import { FiShoppingCart } from "react-icons/fi";
 import { IoCloseCircle } from "react-icons/io5";
 // import cartData from "../data/cart";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const ShoppingCart = () => {
+const ShoppingCart = ({ handleCartOpen }) => {
+  const navigate = useNavigate();
   const [cart, setCart] = useState(
     () => JSON.parse(localStorage.getItem("cart")) || []
   );
@@ -83,8 +85,13 @@ const ShoppingCart = () => {
       </div>
       <div className="flex justify-end">
         <button
-          onClick={() => (window.location.href = "/shop/checkout")}
-          className="px-8 py-1 border-[1px] border-black rounded-full"
+          onClick={() => {
+            setTimeout(() => {
+              handleCartOpen();
+              navigate("/shop/checkout");
+            }, 200);
+          }}
+          className="px-8 py-1 border-[1px] border-black rounded-full hover:bg-gray1 hover:text-putih active:bg-black transition-all duration-300 ease-in-out"
         >
           Checkout
         </button>
