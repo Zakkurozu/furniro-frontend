@@ -7,10 +7,13 @@ import ProductCard from "../components/ProductCard";
 const SearchResult = () => {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
-  const query = params.get("keyword");
+  const query = params.get("keyword") || "";
   const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
+
     setTimeout(() => {
       if (query) {
         const lowerQry = query.toLowerCase();
@@ -31,6 +34,8 @@ const SearchResult = () => {
       } else {
         setResults([]);
       }
+
+      setLoading(false);
     }, 500);
   }, [query]);
 
@@ -53,15 +58,28 @@ const SearchResult = () => {
       <section className="my-4">
         <div className="container">
           <h2 className="font-bold text-xl mb-4">
-            {`Found ${results.length} results for: "${query}"`}
+            {loading
+              ? "Loading result..."
+              : results.length > 0
+              ? `Found ${results.length} results for: "${query}"`
+              : `No resutlt for: "${query}"`}
           </h2>
           <div className="flex flex-wrap w-full justify-start content-center gap-y-1">
-            {results.length > 0 ? (
+            {loading ? (
+              Array.from({ length: 4 }).map((_, index) => (
+                <div
+                  key={index}
+                  className="w-1/2 p-2 h-[12rem] md:w-1/4 md:p-1 lg:p-2 "
+                >
+                  <div className="w-full h-full bg-gray-300 animate-pulse rounded-md"></div>
+                </div>
+              ))
+            ) : results.length > 0 ? (
               results.map((item) => (
                 <ProductCard key={item.id} product={item} />
               ))
             ) : (
-              <p>Tidak menemukan hasil</p>
+              <p>no data</p>
             )}
           </div>
         </div>
