@@ -5,6 +5,7 @@ import product from "../data/products";
 const ProductList = ({ filters, showBtn }) => {
   const [itemShow, setItemShow] = useState(8);
   const [currentView, setCurrentView] = useState(1);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (window.location.pathname === "/") {
@@ -12,12 +13,6 @@ const ProductList = ({ filters, showBtn }) => {
     } else if (window.location.pathname === "/shop") {
       setItemShow(window.innerWidth <= 768 ? 8 : 12);
     }
-    // const updateItems = () => {
-    // };
-
-    // updateItems();
-    // window.addEventListener("resize", updateItems);
-    // return () => window.removeEventListener("resize", updateItems);
   }, []);
 
   useEffect(() => {
@@ -28,6 +23,15 @@ const ProductList = ({ filters, showBtn }) => {
       console.log(itemShow);
     }
   }, [showBtn]);
+
+  useEffect(() => {
+    setLoading(true);
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timeout);
+  }, []);
 
   const filterProducts = product
     .filter((item) => {
@@ -70,7 +74,16 @@ const ProductList = ({ filters, showBtn }) => {
   return (
     <>
       <div className="flex flex-wrap w-full justify-center content-center gap-y-1">
-        {paginateView.length > 0 ? (
+        {loading ? (
+          Array.from({ length: itemShow }).map((_, index) => (
+            <div
+              key={index}
+              className="w-1/2 p-2 h-[12rem] md:w-1/4 md:p-1 lg:p-2 "
+            >
+              <div className="w-full h-full bg-gray-300 animate-pulse rounded-md"></div>
+            </div>
+          ))
+        ) : paginateView.length > 0 ? (
           paginateView.map((item) => (
             <ProductCard key={item.id} product={item} />
           ))
