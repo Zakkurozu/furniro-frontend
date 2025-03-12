@@ -12,6 +12,7 @@ import CheckOut from "./pages/CheckOut";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import ProgressBar from "./components/ProgressBar";
+import ProductByRange from "./pages/ProductByRange";
 
 function App() {
   const location = useLocation();
@@ -44,6 +45,7 @@ function App() {
         <Route path="/shop/product/:id/:name" element={<SingleProduct />} />
         <Route path="/search" element={<SearchResult />} />
         <Route path="/shop/checkout" element={<CheckOut />} />
+        <Route path="/shop/range/:range" element={<ProductByRange />} />
       </Routes>
       <Footer />
     </>
