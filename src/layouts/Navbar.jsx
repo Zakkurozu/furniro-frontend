@@ -117,8 +117,9 @@ const Navbar = () => {
             <div>
               <NavLink
                 to={"/"}
-                onClick={() => {
+                onClick={(e) => {
                   setmenuOpen(false);
+                  e.preventDefault();
                   setTimeout(() => navigate("/"), 300);
                 }}
                 className={({ isActive }) =>
@@ -133,8 +134,9 @@ const Navbar = () => {
             <div>
               <NavLink
                 to="/shop"
-                onClick={() => {
+                onClick={(e) => {
                   setmenuOpen(false);
+                  e.preventDefault();
                   setTimeout(() => navigate("/shop"), 300);
                 }}
                 className={({ isActive }) =>
@@ -149,8 +151,9 @@ const Navbar = () => {
             <div>
               <NavLink
                 to={"/about"}
-                onClick={() => {
+                onClick={(e) => {
                   setmenuOpen(false);
+                  e.preventDefault();
                   setTimeout(() => navigate("/about"), 300);
                 }}
                 className={({ isActive }) =>
@@ -165,8 +168,9 @@ const Navbar = () => {
             <div>
               <NavLink
                 to={"/contact"}
-                onClick={() => {
+                onClick={(e) => {
                   setmenuOpen(false);
+                  e.preventDefault();
                   setTimeout(() => navigate("/contact"), 300);
                 }}
                 className={({ isActive }) =>
