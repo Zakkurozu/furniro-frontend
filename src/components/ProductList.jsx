@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import product from "../data/products";
+import { useLocation } from "react-router-dom";
 
 const ProductList = ({ filters, showBtn }) => {
   const [itemShow, setItemShow] = useState(8);
   const [currentView, setCurrentView] = useState(1);
   const [loading, setLoading] = useState(true);
+  const location = useLocation();
 
   useEffect(() => {
     if (window.location.pathname === "/") {
@@ -25,7 +27,11 @@ const ProductList = ({ filters, showBtn }) => {
   }, [showBtn]);
 
   useEffect(() => {
-    setLoading(true);
+    if (location.pathname === "/") {
+      setLoading(false);
+    } else {
+      setLoading(true);
+    }
     const timeout = setTimeout(() => {
       setLoading(false);
     }, 1000);
