@@ -19,10 +19,16 @@ const ProductList = ({ filters, showBtn }) => {
 
   useEffect(() => {
     if (window.location.pathname === "/") {
-      if (showBtn) {
-        setItemShow((prev) => prev + 4);
-      }
-      console.log(itemShow);
+      setTimeout(() => {
+        if (showBtn) {
+          if (window.innerWidth <= 768) {
+            setItemShow((prev) => prev + 6);
+          } else {
+            setItemShow((prev) => prev + 8);
+          }
+        }
+      }, 300);
+      // console.log(itemShow);
     }
   }, [showBtn]);
 
