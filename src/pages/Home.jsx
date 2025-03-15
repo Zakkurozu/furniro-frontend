@@ -1,12 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Badge from "../components/Badge";
 import Galery from "../components/Galery";
 import ProductList from "../components/ProductList";
 import Range from "../components/Range";
 import Sweeper from "../components/Sweeper";
+import { Link, useNavigate } from "react-router-dom";
+import product from "../data/products";
 
 const Home = () => {
   const [showBtn, setShowBtn] = useState(false);
+  const [randomProd, setRandomProd] = useState({});
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const newProd = product.filter((item) => item.new === true);
+    if (newProd.length > 0) {
+      const randomIndex = Math.floor(Math.random() * newProd.length);
+      setRandomProd(newProd[randomIndex]);
+    }
+  }, []);
+
+  // console.log(randomProd);
+
+  const handleRandomProduct = () => {
+    setTimeout(() => {
+      navigate(`/shop/product/${randomProd.id}/${randomProd.name}`);
+    }, 300);
+  };
 
   return (
     <>
@@ -37,12 +57,17 @@ const Home = () => {
                     space with our latest furniture collection.
                   </p>
                 </div>
-                <div className="bawah">
-                  <button className="bg-primary py-3 px-6 md:py-4 md:px-8 md:mt-2 lg:px-10">
+                <div className="bawah mt-5 mb-1">
+                  <Link
+                    onClick={handleRandomProduct}
+                    className="bg-primary py-3 px-6 hover:bg-[#795e1f] transition-all duration-300 ease-in-out
+                    md:py-4 md:px-8 md:mt-2 
+                    lg:px-10"
+                  >
                     <span className="text-white font-bold uppercase">
                       Buy now
                     </span>
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -95,8 +120,8 @@ const Home = () => {
           {!showBtn && (
             <div className="tombol w-full flex">
               <button
-                onClick={() => setShowBtn(true)}
-                className="mx-auto mt-5 px-6 py-2 border-[1px] border-primary text-primary text-[.9rem] font-semibold"
+                onClick={() => setTimeout(() => setShowBtn(true), 300)}
+                className="mx-auto mt-5 px-6 py-2 border-[1px] border-primary text-primary text-[.9rem] font-semibold hover:bg-primary hover:text-white active:bg-[#795e1f] transition-all duration-300 ease-in-out"
               >
                 Show More
               </button>
