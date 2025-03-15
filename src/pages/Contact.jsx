@@ -18,7 +18,7 @@ const Contact = () => {
             </p>
           </div>
           <div className="form md:px-[5rem] lg:px-[8rem]">
-            <form action="">
+            <form>
               <div className="form-group mb-4">
                 <div className="flex flex-col space-y-3">
                   <label className="font-medium" htmlFor="">
@@ -76,7 +76,11 @@ const Contact = () => {
               </div>
               <div className="form-group mb-4 mt-[2rem]">
                 <div className="flex justify-center">
-                  <button className="py-3 w-[50%] bg-primary text-white font-semibold">
+                  <button
+                    onClick={(e) => e.preventDefault()}
+                    type="submit"
+                    className="py-3 w-[50%] bg-primary text-white font-semibold"
+                  >
                     Submit
                   </button>
                 </div>
