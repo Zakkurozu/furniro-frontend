@@ -97,7 +97,7 @@ const Navbar = () => {
             onClick={() => (window.location.href = "/")}
             className="flex gap-1 items-start"
           >
-            <img src="/logo.png" alt="" className="w-8 md:w-10" />
+            <img src="/logo.svg" alt="" className="w-8 md:w-10" />
             <h1 className="font-bold text-lg md:text-xl cursor-pointer">
               Furniro
             </h1>
