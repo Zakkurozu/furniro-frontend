@@ -14,10 +14,10 @@ export const product = [
     discount: 30,
     price: 2500000,
     images: [
-      "/products/prod1.png",
-      "https://media.istockphoto.com/id/624086456/id/foto/sofa-keanggunan-putih-dengan-bantal-hitam-dan-putih.jpg?s=612x612&w=0&k=20&c=FgKEw9EDlXfpQGHxat4CrvJ_8XuGV6EHUNUcmL41ydQ=",
-      "https://media.istockphoto.com/id/835871672/id/foto/set-bantal-di-sofa-klasik-putih-di-ruang-tamu.jpg?s=612x612&w=0&k=20&c=2CXHS23hJ8TY2Sbg0ZOtXunPh5D1p5eJJ3kl1Bxxxmo=",
-      "https://media.istockphoto.com/id/1325603272/id/foto/interior-ruang-tamu-kontemporer-dengan-settee-putih-dan-bantal-biru-di-atasnya.jpg?s=612x612&w=0&k=20&c=04bsBDfXhwn0CtRRpKNg1_eeEDCje9VBXeOGp8um4OY=",
+      "https://media.istockphoto.com/id/2050457487/id/foto/gambar-yang-dihasilkan-digital-santapan-mewah-di-interior-dapur-yang-stylish.jpg?s=612x612&w=0&k=20&c=86lUuq4rf0_waFbL15htz74bMJBVQhuay9WiPwn3aTs=",
+      "https://media.istockphoto.com/id/2050456921/id/foto/gambar-digital-keanggunan-dapur-dan-makan-kontemporer.jpg?s=612x612&w=0&k=20&c=K7D79fEX_1EW6UIIBdhXnGpaGcFzZIpeR3fiU2fjC3s=",
+      "https://media.istockphoto.com/id/2050457091/id/foto/ilustrasi-digital-dapur-makan-chic-dengan-dekorasi-elegan.jpg?s=612x612&w=0&k=20&c=hcHqojKTxZjMzvYz7VFHTElz96fs3Bds-TfkZULJMeo=",
+      "https://media.istockphoto.com/id/2050457484/id/foto/ilustrasi-digital-dapur-modern-yang-tenang-dengan-pemandangan-alam.jpg?s=612x612&w=0&k=20&c=Bl45U6ZAkB4zGp7_EROvP_r_ImSCekNsdkOW4tuyVIM=",
     ],
   },
   {
@@ -35,10 +35,10 @@ export const product = [
     discount: 0,
     price: 2500000,
     images: [
+      "https://media.istockphoto.com/id/2180267179/id/foto/kursi-modle-putih-dengan-dinding-kuning-rendering-3d.jpg?s=612x612&w=0&k=20&c=CyEHWr7FJ8x9NFH9ui_C1jIuWtIVYqu3ZNhQRHcyHC0=",
       "/products/prod2.png",
-      "https://media.istockphoto.com/id/624086456/id/foto/sofa-keanggunan-putih-dengan-bantal-hitam-dan-putih.jpg?s=612x612&w=0&k=20&c=FgKEw9EDlXfpQGHxat4CrvJ_8XuGV6EHUNUcmL41ydQ=",
-      "https://media.istockphoto.com/id/835871672/id/foto/set-bantal-di-sofa-klasik-putih-di-ruang-tamu.jpg?s=612x612&w=0&k=20&c=2CXHS23hJ8TY2Sbg0ZOtXunPh5D1p5eJJ3kl1Bxxxmo=",
-      "https://media.istockphoto.com/id/1325603272/id/foto/interior-ruang-tamu-kontemporer-dengan-settee-putih-dan-bantal-biru-di-atasnya.jpg?s=612x612&w=0&k=20&c=04bsBDfXhwn0CtRRpKNg1_eeEDCje9VBXeOGp8um4OY=",
+      "https://media.istockphoto.com/id/827667556/id/foto/kursi-bergaya-dengan-atasan-putih-dan-kaki-kayu-ringan-berdiri-di-atas-putih.jpg?s=612x612&w=0&k=20&c=x-lcscvyhrngMc2wF46uo4J8U3cb9cAWad78Hyl92ps=",
+      "https://media.istockphoto.com/id/1249556836/id/foto/kursi-dan-sofa-decupe.jpg?s=612x612&w=0&k=20&c=a5t1y37_dS-Hs7BIRnMyBNQ-Ptjlngk5HdH4rLvemqA=",
     ],
   },
   {
@@ -78,9 +78,9 @@ export const product = [
     price: 5000000,
     images: [
       "/products/prod4.png",
-      "https://media.istockphoto.com/id/624086456/id/foto/sofa-keanggunan-putih-dengan-bantal-hitam-dan-putih.jpg?s=612x612&w=0&k=20&c=FgKEw9EDlXfpQGHxat4CrvJ_8XuGV6EHUNUcmL41ydQ=",
-      "https://media.istockphoto.com/id/835871672/id/foto/set-bantal-di-sofa-klasik-putih-di-ruang-tamu.jpg?s=612x612&w=0&k=20&c=2CXHS23hJ8TY2Sbg0ZOtXunPh5D1p5eJJ3kl1Bxxxmo=",
-      "https://media.istockphoto.com/id/1325603272/id/foto/interior-ruang-tamu-kontemporer-dengan-settee-putih-dan-bantal-biru-di-atasnya.jpg?s=612x612&w=0&k=20&c=04bsBDfXhwn0CtRRpKNg1_eeEDCje9VBXeOGp8um4OY=",
+      "https://media.istockphoto.com/id/1309954993/id/foto/mockup-dinding-ruang-tamu-interior.jpg?s=612x612&w=0&k=20&c=xu_TLiPa291W6deSVOezeV_tS9h9jUkOeDZfqx5o6Oo=",
+      "https://media.istockphoto.com/id/2155092675/id/foto/large-luxury-modern-bright-interiors-living-room-mockup-illustration-3d-rendering-image.jpg?s=612x612&w=0&k=20&c=m9njf3oWj6XTJDM-9_YuxNdljvZoZSZyw2y0REomH5Q=",
+      "https://media.istockphoto.com/id/502127238/id/foto/interior-dengan-sofa-ilustrasi-3d.jpg?s=612x612&w=0&k=20&c=84kJF6mR3ndf5CFHTWy0cBBbR8UMu5xvNxuhezYIM9M=",
     ],
   },
   {
@@ -99,9 +99,9 @@ export const product = [
     price: 700000,
     images: [
       "/products/prod5.png",
-      "https://media.istockphoto.com/id/624086456/id/foto/sofa-keanggunan-putih-dengan-bantal-hitam-dan-putih.jpg?s=612x612&w=0&k=20&c=FgKEw9EDlXfpQGHxat4CrvJ_8XuGV6EHUNUcmL41ydQ=",
-      "https://media.istockphoto.com/id/835871672/id/foto/set-bantal-di-sofa-klasik-putih-di-ruang-tamu.jpg?s=612x612&w=0&k=20&c=2CXHS23hJ8TY2Sbg0ZOtXunPh5D1p5eJJ3kl1Bxxxmo=",
-      "https://media.istockphoto.com/id/1325603272/id/foto/interior-ruang-tamu-kontemporer-dengan-settee-putih-dan-bantal-biru-di-atasnya.jpg?s=612x612&w=0&k=20&c=04bsBDfXhwn0CtRRpKNg1_eeEDCje9VBXeOGp8um4OY=",
+      "https://media.istockphoto.com/id/855451194/id/foto/lampu-putih-yang-dapat-disingkeskan-di-latar-belakang-dinding.jpg?s=612x612&w=0&k=20&c=n6qFWgyvKSFk6UERLp4nrDAF_IESjSBeIFmBKN8n8hg=",
+      "https://media.istockphoto.com/id/1058008844/id/foto/lampu-putih-listrik-di-kamar-tidur-fokus-selektif.jpg?s=612x612&w=0&k=20&c=Ce9rZy14A_FNhah3sD9NqPC-W1vmE1tkXYrlfjpLyPM=",
+      "https://media.istockphoto.com/id/1138861402/id/foto/lampu-langit-langit.jpg?s=612x612&w=0&k=20&c=051RHQCyZ7OvjI7lT6eYgARpXBY1TiN89sSzDEsNZ1w=",
     ],
   },
   {
@@ -119,10 +119,10 @@ export const product = [
     discount: 0,
     price: 6000000,
     images: [
-      "/products/prod6.png",
-      "https://media.istockphoto.com/id/624086456/id/foto/sofa-keanggunan-putih-dengan-bantal-hitam-dan-putih.jpg?s=612x612&w=0&k=20&c=FgKEw9EDlXfpQGHxat4CrvJ_8XuGV6EHUNUcmL41ydQ=",
-      "https://media.istockphoto.com/id/835871672/id/foto/set-bantal-di-sofa-klasik-putih-di-ruang-tamu.jpg?s=612x612&w=0&k=20&c=2CXHS23hJ8TY2Sbg0ZOtXunPh5D1p5eJJ3kl1Bxxxmo=",
-      "https://media.istockphoto.com/id/1325603272/id/foto/interior-ruang-tamu-kontemporer-dengan-settee-putih-dan-bantal-biru-di-atasnya.jpg?s=612x612&w=0&k=20&c=04bsBDfXhwn0CtRRpKNg1_eeEDCje9VBXeOGp8um4OY=",
+      "https://media.istockphoto.com/id/1353030669/id/foto/bingkai-poster-mock-up-dengan-latar-belakang-interior-modern-ruang-tamu-gaya-minimalis-render.jpg?s=612x612&w=0&k=20&c=wBhiW8ChU-XAHJhBJgfo9jrtl7VqRzsI7oxYHKvBWJc=",
+      "https://media.istockphoto.com/id/1353031437/id/foto/interior-ruang-tamu-gelap-mewah-dengan-mock-up-sofa-abu-abu-latar-belakang-interior-modern.jpg?s=612x612&w=0&k=20&c=-Hs69ohcEdZBctSsVVkDJw23AsW11L26ObTlfbMqh5M=",
+      "https://media.istockphoto.com/id/1389329619/id/foto/latar-belakang-interior-ruang-tamu-gelap-yang-mewah-mock-up-dinding-kosong-hitam-mock-up-ruang.jpg?s=612x612&w=0&k=20&c=HJEZlaSnZqE7ZJWoWBFrUqaTnttObN_U94cJNITev7k=",
+      "https://media.istockphoto.com/id/1085287346/id/foto/interior.jpg?s=612x612&w=0&k=20&c=VAS0kviF6IsqHphMGzzlee3cx8ZW63aPkHHdJT9ZqOk=",
     ],
   },
   {
@@ -141,15 +141,15 @@ export const product = [
     price: 5000000,
     images: [
       "/products/prod7.png",
-      "https://media.istockphoto.com/id/624086456/id/foto/sofa-keanggunan-putih-dengan-bantal-hitam-dan-putih.jpg?s=612x612&w=0&k=20&c=FgKEw9EDlXfpQGHxat4CrvJ_8XuGV6EHUNUcmL41ydQ=",
-      "https://media.istockphoto.com/id/835871672/id/foto/set-bantal-di-sofa-klasik-putih-di-ruang-tamu.jpg?s=612x612&w=0&k=20&c=2CXHS23hJ8TY2Sbg0ZOtXunPh5D1p5eJJ3kl1Bxxxmo=",
-      "https://media.istockphoto.com/id/1325603272/id/foto/interior-ruang-tamu-kontemporer-dengan-settee-putih-dan-bantal-biru-di-atasnya.jpg?s=612x612&w=0&k=20&c=04bsBDfXhwn0CtRRpKNg1_eeEDCje9VBXeOGp8um4OY=",
+      "https://media.istockphoto.com/id/689209360/id/foto/bantal-kamar-tidur.jpg?s=612x612&w=0&k=20&c=Jvri7PvhFYHRVRgMSuan-3KhaPsDuaZveT_YMBB3MtY=",
+      "https://media.istockphoto.com/id/669224142/id/foto/interior-kamar-tidur-yang-nyaman-dan-klasik-dengan-bantal-dan-lampu-baca-di-meja-samping-tempat.jpg?s=612x612&w=0&k=20&c=lwd9cHqrfJUaYOvR-uN6Wtf6csKT2SCJpSW8utQZXjM=",
+      "https://media.istockphoto.com/id/1143727093/id/foto/warna-merah-muda-nada-beatiful-kamar-tidur.jpg?s=612x612&w=0&k=20&c=1ttLh2-dX59VHA5N49sW6bBgaUHty8lAOBpQg7nvSkA=",
     ],
   },
   {
     id: 8,
-    name: "Potty",
-    tag: "Elegant sofa",
+    name: "Orrenjiro",
+    tag: "Elegant Lether sofa",
     category: "Sofa",
     range: "Living",
     stock: 8,
@@ -162,9 +162,9 @@ export const product = [
     price: 3000000,
     images: [
       "/products/prod8.png",
-      "https://media.istockphoto.com/id/624086456/id/foto/sofa-keanggunan-putih-dengan-bantal-hitam-dan-putih.jpg?s=612x612&w=0&k=20&c=FgKEw9EDlXfpQGHxat4CrvJ_8XuGV6EHUNUcmL41ydQ=",
-      "https://media.istockphoto.com/id/835871672/id/foto/set-bantal-di-sofa-klasik-putih-di-ruang-tamu.jpg?s=612x612&w=0&k=20&c=2CXHS23hJ8TY2Sbg0ZOtXunPh5D1p5eJJ3kl1Bxxxmo=",
-      "https://media.istockphoto.com/id/1325603272/id/foto/interior-ruang-tamu-kontemporer-dengan-settee-putih-dan-bantal-biru-di-atasnya.jpg?s=612x612&w=0&k=20&c=04bsBDfXhwn0CtRRpKNg1_eeEDCje9VBXeOGp8um4OY=",
+      "https://media.istockphoto.com/id/2167041704/id/foto/large-luxury-modern-bright-interiors-living-room-mockup-illustration-3d-rendering-image.jpg?s=612x612&w=0&k=20&c=AS972aaxfjKgWxEwO4GI8h3T5SsZaaqo9mz6Yw1XSns=",
+      "https://media.istockphoto.com/id/2068127491/id/foto/ruang-tamu-coklat-dengan-kursi-berlengan-dan-dekorasi-rumah.jpg?s=612x612&w=0&k=20&c=rxudxJDVQ32WDlW5SPHhDnKnzOlZoTgMU2RmU6PLc1g=",
+      "https://media.istockphoto.com/id/2089126618/id/foto/sofa-kulit-dengan-dinding-beige-kosong-untuk-mockup.jpg?s=612x612&w=0&k=20&c=yuuyQInuhWr4CW30pfgmKxU1S476NGONXWkfkoUAzB0=",
     ],
   },
   {
