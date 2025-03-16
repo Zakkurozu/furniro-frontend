@@ -193,7 +193,11 @@ const Navbar = () => {
               onClick={handleSearchOpen}
               className="text-lg md:text-xl"
             >
-              <FiSearch />{" "}
+              <FiSearch
+                className={`${
+                  searchOpen ? "text-primary" : ""
+                } transition-all duration-100 ease-in-out`}
+              />{" "}
             </button>
             <button className="text-lg md:text-xl">
               <FaRegHeart />{" "}
@@ -212,12 +216,18 @@ const Navbar = () => {
                   {cartLength}
                 </span>
               </div>
-              <FiShoppingCart />{" "}
+              <FiShoppingCart
+                className={`${
+                  cartOpen ? "text-primary" : ""
+                } transition-all duration-100 ease-in-out`}
+              />{" "}
             </button>
             <button
               ref={buttonRef}
               onClick={handleMenuOpen}
-              className="flex flex-col gap-y-1 md:hidden"
+              className={`flex flex-col gap-y-1 p-1 md:hidden ${
+                menuOpen ? "bg-gray6 rounded-md" : ""
+              } transition-all duration-200 ease-in-out`}
             >
               <span className="w-[20px] h-[2px] bg-black"></span>
               <span className="w-[20px] h-[2px] bg-black"></span>
