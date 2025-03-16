@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 
 const ProductList = ({ filters, showBtn }) => {
   const [itemShow, setItemShow] = useState(8);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [currentView, setCurrentView] = useState(1);
   const [loading, setLoading] = useState(true);
   const location = useLocation();
@@ -40,44 +41,61 @@ const ProductList = ({ filters, showBtn }) => {
     }
     const timeout = setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 800);
 
     return () => clearTimeout(timeout);
-  }, []);
+  }, [location]);
 
-  const filterProducts = product
-    .filter((item) => {
-      if (filters?.range?.length > 0 && !filters.range.includes(item.range)) {
-        return false;
-      }
-      if (
-        filters?.category?.length > 0 &&
-        !filters.category.includes(item.category)
-      ) {
-        return false;
-      }
-      if (filters?.others?.includes("Discount") && item.discount <= 0) {
-        return false;
-      }
-      if (filters?.others?.includes("New") && !item.new) {
-        return false;
-      }
-      return true;
-    })
-    .sort((a, b) => {
-      if (filters?.sortBy === "1") return a.name.localeCompare(b.name);
+  useEffect(() => {
+    setTimeout(() => {
+      setCurrentView(1);
+    }, 200);
+  }, [filters]);
 
-      const priceA = a.price - (a.price * (a.discount || 0)) / 100;
-      const priceB = b.price - (b.price * (b.discount || 0)) / 100;
-      if (filters?.sortBy === "2") return priceA - priceB;
-      if (filters?.sortBy === "3") return priceB - priceA;
-      return 0;
-    });
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      const result = product
+        .filter((item) => {
+          if (
+            filters?.range?.length > 0 &&
+            !filters.range.includes(item.range)
+          ) {
+            return false;
+          }
+          if (
+            filters?.category?.length > 0 &&
+            !filters.category.includes(item.category)
+          ) {
+            return false;
+          }
+          if (filters?.others?.includes("Discount") && item.discount <= 0) {
+            return false;
+          }
+          if (filters?.others?.includes("New") && !item.new) {
+            return false;
+          }
+          return true;
+        })
+        .sort((a, b) => {
+          if (filters?.sortBy === "1") return a.name.localeCompare(b.name);
 
-  const totalPage = Math.ceil(filterProducts.length / itemShow);
+          const priceA = a.price - (a.price * (a.discount || 0)) / 100;
+          const priceB = b.price - (b.price * (b.discount || 0)) / 100;
+          if (filters?.sortBy === "2") return priceA - priceB;
+          if (filters?.sortBy === "3") return priceB - priceA;
+          return 0;
+        });
+
+      setFilteredProducts(result);
+    }, 200);
+
+    return () => clearTimeout(timeout);
+  }, [filters]);
+
+  const totalPage = Math.ceil(filteredProducts.length / itemShow);
   const startIndex = (currentView - 1) * itemShow;
   const endIndex = startIndex + itemShow;
-  const paginateView = filterProducts.slice(startIndex, endIndex);
+  const paginateView = filteredProducts.slice(startIndex, endIndex);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
