@@ -1,8 +1,8 @@
-# React + Vite
+# Furniro Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Furniro adalah frontend untuk website furnitur yang dikembangkan menggunakan **React.js** dan **Tailwind CSS**. Proyek ini bertujuan untuk menghadirkan tampilan modern, responsif, dan user-friendly bagi pengguna yang ingin mencari dan membeli produk furnitur secara online.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Teknologi yang Digunakan  
+- **React.js** – Untuk membangun antarmuka yang dinamis dan interaktif.  
+- **Tailwind CSS** – Untuk styling yang fleksibel dan efisien.  
+- **Vite** – Untuk pengembangan yang lebih cepat.
